@@ -45,6 +45,28 @@ if has_not code; then
 fi
 ok "VS Code"
 
+if has_not slack; then
+  cd
+  slack='https://downloads.slack-edge.com/linux_releases/slack-desktop-3.3.7-amd64.deb'
+  wget $slack
+  sudo dpkg -i ${slack##*/}
+  sudo apt-get -y install -f
+  rm -rf ${slack##*/}
+fi
+
+if has_not sublime; then
+  sudo add-apt-repository ppa:webupd8team/sublime-text-3
+  sudo apt-get update
+  sudo apt-get install sublime-text-installer
+fi
+ok "Sublime Text Editor 3 installed"
+
+
+if has_not chromium-browser; then
+ sudo apt-get install chromium-browser
+fi
+ok "Chromium"
+
 if has_not mysql; then
   sudo apt-get install -y mysql-server
 fi
