@@ -45,13 +45,6 @@ ok "VLC"
 ok "Git"
 ok "xclip"
 
-if has_not atom; then
-  sudo add-apt-repository ppa:webupd8team/atom
-  sudo apt update
-  sudo apt install atom --ignore-depends
-fi
-ok "Atom installed"
-
 if has_not code; then
   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
   sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
@@ -88,21 +81,6 @@ if has nautilus && has_not dropbox; then
   sudo apt-get install nautilus-dropbox -y
 fi
 ok "Dropbox"
-
-if has_not skype; then
-  wget -O skype.deb http://download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb
-  sudo dpkg -i skype.deb --ignore-depends
-  sudo apt-get install -fy
-  rm -rf skype.deb
-
-  # Gnome Shell extension
-  wget -O skype-extension.zip https://github.com/chrisss404/gnome-shell-ext-SkypeNotification/archive/master.zip
-  unzip skype-extension.zip -d skype-extension
-  cp -r skype-extension/gnome-shell-ext-SkypeNotification-master/SkypeNotification@chrisss404.gmail.com/ \
-    ~/.local/share/gnome-shell/extensions
-  rm -rf skype-extension*
-fi
-ok "Skype"
 
 if ! [[ -d "$HOME/.oh-my-zsh" ]]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
