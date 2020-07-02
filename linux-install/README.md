@@ -5,7 +5,8 @@
 
 ## Usage
 
-Just run:
+Just run in your terminal:
+
 **Ubuntu (Debian like):**
 
 **prep students**
