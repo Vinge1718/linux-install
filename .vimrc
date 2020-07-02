@@ -126,9 +126,9 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Color scheme
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
-" wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
+" curl https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim > monokai.vim
 set t_Co=256
-color wombat256mod
+color monokai
 
 
 " Enable syntax highlighting
@@ -155,6 +155,7 @@ nmap Q gqap
 " Useful settings
 set history=700
 set undolevels=700
+set title
 
 
 " Real programmers don't use TABs but spaces
@@ -171,6 +172,8 @@ set incsearch
 set ignorecase
 set smartcase
 
+"Shift-LeftClick a word to search forwards, or Shift-RightClick to search backwards.
+set mousemodel=extend
 
 " Disable stupid backup and swap files - they trigger too many events
 " for file system watchers
